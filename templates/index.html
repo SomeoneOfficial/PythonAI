@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPY Stock Prediction</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .prediction-result {
+            font-size: 2em;
+            color: #27ae60;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .last-close-info {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .prediction-date-info {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            color: #e74c3c;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #7f8c8d;
+            max-width: 600px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.7em;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SPY Stock Price Prediction</h1>
+
+        {% if last_close %}
+            <p class="last-close-info">Last Actual SPY Close: <strong>{{ last_close }}</strong></p>
+        {% endif %}
+
+        {% if prediction %}
+            <p class="prediction-date-info">Predicted SPY Close for <strong>{{ prediction_date if prediction_date else 'Next Trading Day' }}</strong>:</p>
+            <div class="prediction-result">{{ prediction }}</div>
+        {% elif error %}
+            <p class="error-message">{{ error }}</p>
+        {% else %}
+            <p>Loading prediction...</p>
+        {% endif %}
+
+        <p class="disclaimer">
+            <strong>Disclaimer:</strong> This stock market prediction model is for educational and demonstrational purposes only.
+            Stock market prediction is inherently risky and complex.
+            <strong>Do NOT use this model for actual financial decisions.</strong> Past performance is not indicative of future results.
+        </p>
+    </div>
+    <footer>
+        Powered by AI - For Educational Use Only
+    </footer>
+</body>
+</html>

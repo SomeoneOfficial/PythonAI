@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPY Stock Prediction (TensorFlow.js)</title>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 90%;
+            width: 500px;
+        }
+        h1 {
+            color: #1877f2;
+            margin-bottom: 20px;
+        }
+        .status {
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #606770;
+            height: 40px;
+        }
+        .prediction-box {
+            display: none; /* Hidden by default */
+            margin: 20px 0;
+        }
+        .prediction-label {
+            font-size: 1em;
+            color: #606770;
+        }
+        .prediction-result {
+            font-size: 2.5em;
+            color: #31a24c;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .error-message {
+            color: #fa383e;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #606770;
+            max-width: 600px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.7em;
+            color: #95a5a6;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #3498db;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SPY Stock Price Prediction</h1>
+        <div id="status" class="status">
+            <div id="loader" class="loader"></div>
+            <p id="status-text">Loading TensorFlow.js model...</p>
+        </div>
+        <div id="prediction-box" class="prediction-box">
+            <p class="prediction-label">Predicted SPY Close for Next Trading Day:</p>
+            <div id="prediction-result" class="prediction-result"></div>
+        </div>
+        <div id="error-box" class="error-message"></div>
+
+        <p class="disclaimer">
+            <strong>Disclaimer:</strong> This is an educational demonstration and not financial advice.
+            The model uses historical data and TensorFlow.js to make a prediction directly in your browser.
+            <strong>Do not use this for actual financial decisions.</strong>
+        </p>
+    </div>
+    <footer>
+        Powered by AI - For Educational Use Only
+    </footer>
+
+    <!-- Prediction Logic -->
+    <script src="predict.js"></script>
+</body>
+</html>
